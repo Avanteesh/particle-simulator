@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Particle Simulator</title>
+  <style>
+    *,*::before,*::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: 1.2s;
+    }
+    :root {
+      --setting-window-width: 28vh; 
+    }
+    button:hover {
+      cursor: pointer;
+    }
+    body {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .content-container {
+      display: grid;
+      place-items: center;
+      margin: 5vh;
+    }
+    .content-container .container {
+      margin: 3vh;
+    }
+    svg {
+      background: #000;
+    }
+    .button button {
+      --Height: 45px;
+      height: var(--Height);
+      width: calc(var(--Height) * 3);
+      background: #ccc;
+      border-radius: 12px;
+      background: #0eeb20;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .particle-settings {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: none;
+      width: var(--setting-window-width);
+      height: calc(var(--setting-window-width)*1.4);
+      box-shadow: 0px 0px 12px 0.8px #ccc;
+      border-radius: 10px;
+      padding: 13px;
+      overflow: hidden;
+    }
+    .particle-settings .closing-window-container {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 1rem;
+    }
+    .closing-window-container i:hover {
+      cursor: pointer;
+    }
+    .closing-window-container .Dialog-Body {
+      display: grid;
+      place-items: center;
+      height: calc(var(--setting-window-width));
+    }
+    .Dialog-Body div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="content-container">
+    <main class="container">
+      <svg class="sim-window" height="550px" 
+      width="700px" xmlns="http://www.w3.org/2000/svg">
+      </svg>
+    </main>
+    <div class="button">
+      <button class="Add-Particle">add particle +</button>
+    </div>
+  </main>
+  <dialog class="particle-settings">
+    <div class="closing-window-container">
+      <i class="close-window">&#9932;</i>
+    </div>
+    <div class="Dialog-Body">
+      <div>
+        <label>Size</label>
+        <input type="number" value="6" min="5" max="12" class="particle-size-input">
+      </div>
+      <div>
+        <label>Color</label>
+        <input class="Color-Input-field" type="color">
+      </div>
+      <div class="button" style="display: grid; place-items: center;">
+        <button class="create-particle">Create</button>
+      </div>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
